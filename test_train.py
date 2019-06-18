@@ -14,11 +14,13 @@ import numpy as np
 # fix random seed for reproducibility
 np.random.seed(7)
 
+# because using colab to run this train, so i used io to read file .csv
 from google.colab import files
-uploaded = files.upload()
+uploaded = files.upload()   #upload file .csv here
 
 import io
 dataset = pd.read_csv(io.BytesIO(uploaded['traindata.csv']))
+#-------------------------------------------------------------------------------------------
 dataset = pd.DataFrame(dataset, columns=['MinTemp','MaxTemp','Rainfall','Humidity9am','Humidity3pm','Temp9am','Temp3pm','RainToday'])
 
 data = dataset.values
